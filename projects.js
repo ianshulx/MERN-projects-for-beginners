@@ -14,6 +14,13 @@ const projects = [
       "A URL shortening service that allows users to create shortened links for long URLs, track click statistics, and manage their links through a user-friendly interface.",
     imgSrc: "",
   },
+  {
+    title: "Ai Code Review",
+    url: "https://github.com/YashSavalkar321/Ai-Code-Review",
+    description:
+      "An AI-powered code review tool that analyzes code for potential issues, suggests improvements, and ensures adherence to coding standards, enhancing code quality and developer productivity.",
+    imgSrc: "",
+  },
   
   
 ];

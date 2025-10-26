@@ -21,6 +21,13 @@ const projects = [
       "An AI-powered code review tool that analyzes code for potential issues, suggests improvements, and ensures adherence to coding standards, enhancing code quality and developer productivity.",
     imgSrc: "",
   },
+  {
+    title: "Ochi Web-Clone",
+    url: "https://github.com/YashSavalkar321/Ochi-Web-Clone---React",
+    description:
+      "A React-based clone of the Ochi website, replicating its design and functionality to provide users with a similar browsing experience while showcasing React development skills.",
+    imgSrc: "MERN-projects-for-beginners/Ochi/public",
+  },
   
   
 ];

@@ -14,6 +14,15 @@ const projects = [
       "A URL shortening service that allows users to create shortened links for long URLs, track click statistics, and manage their links through a user-friendly interface.",
     imgSrc: "assets/urlcut.png",
   },
+    {
+    title: "Imagify",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagifyr",
+    description:
+      "**Imagify** – A MERN-based AI web app that converts text prompts into stunning, high-quality images using advanced text-to-image generation models.",
+    imgSrc: "assets/imgtxt.png",
+  },
+
+
   
   
 ];

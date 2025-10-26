@@ -28,6 +28,8 @@ const projects = [
       "A React-based clone of the Ochi website, replicating its design and functionality to provide users with a similar browsing experience while showcasing React development skills.",
     imgSrc: "MERN-projects-for-beginners/Ochi/public",
   },
+
+
     {
     title: "Imagify",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagifyr",

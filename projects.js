@@ -12,7 +12,7 @@ const projects = [
     url: "https://github.com/YashSavalkar321/UrlShortner",
     description:
       "A URL shortening service that allows users to create shortened links for long URLs, track click statistics, and manage their links through a user-friendly interface.",
-    imgSrc: "",
+    imgSrc: "assets/urlcut.png",
   },
   {
     title: "Ai Code Review",
@@ -21,6 +21,15 @@ const projects = [
       "An AI-powered code review tool that analyzes code for potential issues, suggests improvements, and ensures adherence to coding standards, enhancing code quality and developer productivity.",
     imgSrc: "",
   },
+    {
+    title: "Imagify",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagifyr",
+    description:
+      "**Imagify** – A MERN-based AI web app that converts text prompts into stunning, high-quality images using advanced text-to-image generation models.",
+    imgSrc: "assets/imgtxt.png",
+  },
+
+
   
   
 ];

@@ -231,56 +231,73 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-dark text-light text-center py-3" data-aos="fade-up">
-  <div class="container">
-    <a href="https://github.com/ianshulx" target="_blank"><i class="bi bi-github"></i></a>
-    <br>
-    This repository is licensed under the MIT license. See the
-    <a href="https://github.com/ianshulx/MERN-projects-for-beginners/blob/main/LICENSE" target="_blank">LICENSE</a>
-    file for more information.
-  </div>
-</footer>
-
 <script>
-  const repoUrl = "https://api.github.com/repos/ianshulx/MERN-Projects-for-beginners";
+  // ✅ Correct repository URL (case-sensitive)
+  const repoUrl = "https://api.github.com/repos/ianshulx/MERN-projects-for-beginners";
   const contributorsList = document.getElementById("contributors-list");
 
+  // ===============================
+  // 🧩 FETCH CONTRIBUTORS (Commits + PR authors)
+  // ===============================
   async function fetchAllContributors() {
-    let allContributors = [];
-    let page = 1;
-    const perPage = 100; // max allowed by GitHub
+    const allContributors = new Map();
+    const perPage = 100;
 
-    while (true) {
+    // --- 1️⃣ Fetch commit contributors ---
+    for (let page = 1; ; page++) {
       const response = await fetch(`${repoUrl}/contributors?per_page=${perPage}&page=${page}`);
       const data = await response.json();
-      if (data.length === 0) break;
-      allContributors = allContributors.concat(data);
-      page++;
+      if (!Array.isArray(data) || data.length === 0) break;
+      data.forEach(user => allContributors.set(user.login, user));
     }
 
-    // Display contributors
-    allContributors.forEach(contributor => {
+    // --- 2️⃣ Fetch PR authors (not in main branch yet) ---
+    for (let page = 1; ; page++) {
+      const response = await fetch(`${repoUrl}/pulls?state=all&per_page=${perPage}&page=${page}`);
+      const data = await response.json();
+      if (!Array.isArray(data) || data.length === 0) break;
+
+      data.forEach(pr => {
+        if (pr.user && !allContributors.has(pr.user.login)) {
+          allContributors.set(pr.user.login, {
+            login: pr.user.login,
+            avatar_url: pr.user.avatar_url,
+            html_url: pr.user.html_url
+          });
+        }
+      });
+    }
+
+    // --- 3️⃣ Display contributors ---
+    contributorsList.innerHTML = "";
+    [...allContributors.values()].forEach(contributor => {
       const li = document.createElement("li");
       li.innerHTML = `
-        <a href="${contributor.html_url}" target="_blank">
-          <img src="${contributor.avatar_url}" alt="${contributor.login}" width="100" height="100">
+        <a href="${contributor.html_url}" target="_blank" style="text-align:center;">
+          <img src="${contributor.avatar_url}" alt="${contributor.login}" width="100" height="100" style="border-radius:50%; margin:10px;">
           <p>${contributor.login}</p>
         </a>
       `;
       contributorsList.appendChild(li);
     });
 
-    // Update contributors count
+    console.log(`✅ Loaded ${allContributors.size} contributors`);
+
+    // Update contributors count if applicable
     const contributorsBtn = document.querySelector('.contributors-btn');
-    if (contributorsBtn) contributorsBtn.innerHTML = `<i class="bi bi-people-fill"></i> Contributors (${allContributors.length})`;
+    if (contributorsBtn)
+      contributorsBtn.innerHTML = `<i class="bi bi-people-fill"></i> Contributors (${allContributors.size})`;
 
     const contributorCount = document.getElementById('contributor-count');
-    if (contributorCount) contributorCount.textContent = allContributors.length + '+';
+    if (contributorCount)
+      contributorCount.textContent = allContributors.size + '+';
   }
 
   fetchAllContributors().catch(console.error);
 
-  // Fetch repo details
+  // ===============================
+  // 🧠 FETCH REPO DETAILS
+  // ===============================
   async function fetchRepoDetails() {
     try {
       const repoData = await (await fetch(repoUrl)).json();
@@ -296,41 +313,48 @@
       const forkBtn = document.querySelector('.fork-btn');
       if (forkBtn) forkBtn.innerHTML = `<i class="bi bi-code-branch"></i> Fork (${repoData.forks_count})`;
 
-      // Update open PRs, issues, watchers
+      // Fetch open PRs and issues
       const pullsData = await (await fetch(`${repoUrl}/pulls?state=open`)).json();
       const prCount = pullsData.length;
       const issuesCount = Math.max(repoData.open_issues_count - prCount, 0);
       const watchersCount = Math.max(repoData.subscribers_count || 0, 0);
 
       const issuesBtn = document.querySelector('.issues-btn');
-      if (issuesBtn) issuesBtn.innerHTML = `<i class="bi bi-exclamation-circle-fill"></i> Issues (${issuesCount})`;
+      if (issuesBtn)
+        issuesBtn.innerHTML = `<i class="bi bi-exclamation-circle-fill"></i> Issues (${issuesCount})`;
 
       const prBtn = document.querySelector('.pr-btn');
-      if (prBtn) prBtn.innerHTML = `<i class="bi bi-git-pull-request"></i> Pull Requests (${prCount})`;
+      if (prBtn)
+        prBtn.innerHTML = `<i class="bi bi-git-pull-request"></i> Pull Requests (${prCount})`;
 
       const watchersBtn = document.querySelector('.watchers-btn');
-      if (watchersBtn) watchersBtn.innerHTML = `<i class="bi bi-eye"></i> Watchers (${watchersCount})`;
+      if (watchersBtn)
+        watchersBtn.innerHTML = `<i class="bi bi-eye"></i> Watchers (${watchersCount})`;
 
     } catch (err) {
-      console.error("Error fetching repo details:", err);
+      console.error("❌ Error fetching repo details:", err);
     }
   }
 
   fetchRepoDetails();
 
-  // Navbar scroll effect
+  // ===============================
+  // 🎢 NAVBAR + LOGO EFFECTS
+  // ===============================
   const navbar = document.querySelector('.floating-navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    if (navbar) {
+      if (window.scrollY > 10) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
   });
 
-  // Fade logo on scroll
   const logoDiv = document.querySelector('.hf-logoo');
   window.addEventListener('scroll', () => {
-    logoDiv.style.opacity = window.scrollY > 50 ? '0' : '1';
+    if (logoDiv) logoDiv.style.opacity = window.scrollY > 50 ? '0' : '1';
   });
 </script>
+
 
 <script src="projects.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

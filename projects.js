@@ -12,7 +12,7 @@ const projects = [
     url: "https://github.com/YashSavalkar321/UrlShortner",
     description:
       "A URL shortening service that allows users to create shortened links for long URLs, track click statistics, and manage their links through a user-friendly interface.",
-    imgSrc: "",
+    imgSrc: "assets/urlcut.png",
   },
   
   

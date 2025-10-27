@@ -19,14 +19,32 @@
 } */
 
 
-body {
+/* body {
   font-family: 'Space Grotesk', 'Poppins', sans-serif;
   padding-top: 120px;
   background-size: 150px 150px;
   overflow-x: hidden;
  font-family: "Atkinson Hyperlegible", sans-serif;
   font-style: normal;
+} */
+
+body {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  padding-top: 120px;
+  background-color: #0d1117; /* 🟢 MERN dark background */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 230, 118, 0.06),
+    rgba(97, 218, 251, 0.08),
+    #0d1117
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-style: normal;
 }
+
 
 
 
@@ -35,13 +53,21 @@ svg {
   position: fixed;
   top: 0;
   left: 0;
-  width: 80%;
+  width: 100%;
   box-sizing: border-box;
   display: block;
-  background-color: #038979;
-  background-image: linear-gradient(to bottom, rgba(0, 99, 97, 0.86), #05406b);
+  background-color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 230, 118, 0.15),
+    rgba(97, 218, 251, 0.15),
+    transparent
+  );
   z-index: -1;
 }
+
+
+
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.7);
@@ -178,14 +204,10 @@ nav {
 }
 
 .card-body {
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 20px 20px;
-  border-radius: 18px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 .card-body:hover {
   cursor: pointer;

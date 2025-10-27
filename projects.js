@@ -57,6 +57,13 @@ const projects = [
     description:
       "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
     imgSrc: "assets/blog.png",
+    },
+    {
+    title: "E-commerce MERN",
+    url: "https://github.com/nagmanijha/e-commerce",
+    description:
+      "A full-featured e-commerce application built with the MERN stack, providing users with a seamless shopping experience, including product browsing, cart management, and secure checkout.",
+    imgSrc: "assets/e-comm.png",
     }
 
 

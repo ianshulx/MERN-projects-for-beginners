@@ -44,6 +44,12 @@ const projects = [
     description:
       "A comprehensive B2B project management system built with the MERN stack, designed to streamline collaboration, task tracking, and communication for businesses.",
     imgSrc: "assets/b2b.png",
+    },
+    {
+    title: "Finance-MERN",
+    url: "https://github.com/nagmanijha/finora",
+    description: "A personal finance management application built with the MERN stack, enabling users to track expenses, manage budgets, and visualize financial data through interactive charts and reports.",
+    imgSrc: "assets/finance.png",
     }
 
 

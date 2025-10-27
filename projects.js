@@ -50,6 +50,13 @@ const projects = [
     url: "https://github.com/nagmanijha/finora",
     description: "A personal finance management application built with the MERN stack, enabling users to track expenses, manage budgets, and visualize financial data through interactive charts and reports.",
     imgSrc: "assets/finance.png",
+    },
+    {
+    title: "blog",
+    url: "https://github.com/nagmanijha/blog-app",
+    description:
+      "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
+    imgSrc: "assets/blog.png",
     }
 
 

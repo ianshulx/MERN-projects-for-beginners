@@ -38,6 +38,14 @@ const projects = [
     imgSrc: "assets/imgtxt.png",
   },
 
+    {
+    title: "b2b-project-management",
+    url: "https://github.com/nagmanijha/b2b-workspace-management-backend",
+    description:
+      "A comprehensive B2B project management system built with the MERN stack, designed to streamline collaboration, task tracking, and communication for businesses.",
+    imgSrc: "assets/b2b.png",
+    }
+
 
   
   

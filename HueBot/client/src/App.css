@@ -1,31 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  gap: 1rem;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
-.app h1 {
-  font-size: 4rem;
-  font-weight: bold;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.06);
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-info span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.logout-btn {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+  transform: translateY(-1px);
 }
 
 .app p {
-  font-size: 1.5rem;
-  color: #888;
-  margin: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
 }

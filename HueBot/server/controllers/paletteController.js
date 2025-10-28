@@ -6,10 +6,10 @@ exports.getPalettes = async (req, res) => {
     const palettes = await Palette.find({ user: req.userId }).sort({
       createdAt: -1,
     });
-    res.json(palettes);
+    res.json({ success: true, palettes });
   } catch (error) {
     console.error("Get palettes error:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
@@ -33,12 +33,13 @@ exports.savePalette = async (req, res) => {
     await palette.save();
 
     res.status(201).json({
+      success: true,
       message: "Palette saved successfully",
       palette,
     });
   } catch (error) {
     console.error("Save palette error:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
@@ -51,13 +52,15 @@ exports.deletePalette = async (req, res) => {
     });
 
     if (!palette) {
-      return res.status(404).json({ message: "Palette not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Palette not found" });
     }
 
     await Palette.deleteOne({ _id: req.params.id });
-    res.json({ message: "Palette deleted successfully" });
+    res.json({ success: true, message: "Palette deleted successfully" });
   } catch (error) {
     console.error("Delete palette error:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };

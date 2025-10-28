@@ -9,7 +9,7 @@ import {
 } from "../utils/colourGenerator";
 import { paletteAPI } from "../services/api";
 
-const PaletteGenerator = () => {
+const PaletteGenerator = ({ onPaletteSaved }) => {
   const [palette, setPalette] = useState(generateRandomPalette());
   const [paletteType, setPaletteType] = useState("random");
   const [showSaveModal, setShowSaveModal] = useState(false);
@@ -66,10 +66,13 @@ const PaletteGenerator = () => {
         setPaletteName("");
         setShowSaveModal(false);
         setTimeout(() => setMessage(""), 3000);
+        if (onPaletteSaved) {
+          onPaletteSaved();
+        }
       } else {
         setMessage(response.message || "Failed to save palette");
       }
-    } catch (error) {
+    } catch {
       setMessage("Error saving palette");
     } finally {
       setSaving(false);

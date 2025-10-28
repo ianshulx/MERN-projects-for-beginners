@@ -1,5 +1,5 @@
 .palette-generator {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem 2rem;
   position: relative;
@@ -7,7 +7,7 @@
 
 .message-toast {
   position: fixed;
-  top: 2rem;
+  bottom: 2rem;
   right: 2rem;
   background: var(--orange);
   color: white;
@@ -15,17 +15,17 @@
   border-radius: 10px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: slideIn 0.3s ease;
+  animation: slideInBottom 0.3s ease;
   z-index: 1000;
 }
 
-@keyframes slideIn {
+@keyframes slideInBottom {
   from {
-    transform: translateX(100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -64,8 +64,8 @@
 .palette-display {
   display: flex;
   gap: 1rem;
-  margin-bottom: 3rem;
-  min-height: 300px;
+  margin-bottom: 2.5rem;
+  min-height: 400px;
 }
 
 .colour-box {
@@ -161,6 +161,7 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+  animation: overlayFadeIn 0.2s ease-in;
 }
 
 .modal-content {
@@ -168,14 +169,17 @@
   padding: 2.5rem;
   border-radius: 16px;
   width: 90%;
-  max-width: 400px;
+  max-width: 450px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--orange);
+  animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .modal-content h3 {
   margin: 0 0 1.5rem 0;
-  color: var(--text-primary);
+  color: var(--orange);
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .modal-content input {
@@ -184,8 +188,9 @@
   border: 2px solid var(--border);
   border-radius: 10px;
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   transition: border-color 0.2s ease;
+  text-align: center;
 }
 
 .modal-content input:focus {
@@ -196,12 +201,13 @@
 .modal-actions {
   display: flex;
   gap: 1rem;
-  justify-content: flex-end;
+  margin-top: 1.5rem;
+  justify-content: center;
 }
 
 .modal-actions button {
-  padding: 0.75rem 1.75rem;
-  border: none;
+  flex: 1;
+  padding: 0.75rem;
   border-radius: 10px;
   font-weight: 600;
   font-size: 1rem;
@@ -210,27 +216,51 @@
 }
 
 .modal-actions button:first-child {
-  background: transparent;
-  color: var(--text-secondary);
+  background: white;
+  color: var(--text-primary);
   border: 2px solid var(--border);
 }
 
 .modal-actions button:first-child:hover {
-  background: var(--bg-primary);
+  background: #f3f4f6;
+  transform: translateY(-1px);
 }
 
 .modal-actions button:last-child {
   background: var(--orange);
   color: white;
+  border: 2px solid var(--orange);
 }
 
 .modal-actions button:last-child:hover:not(:disabled) {
   background: var(--orange-dark);
+  border-color: var(--orange-dark);
+  transform: translateY(-1px);
 }
 
 .modal-actions button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {

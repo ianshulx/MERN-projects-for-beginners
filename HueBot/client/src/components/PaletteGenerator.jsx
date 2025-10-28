@@ -62,7 +62,7 @@ const PaletteGenerator = ({ onPaletteSaved }) => {
       });
 
       if (response.palette) {
-        setMessage("Palette saved successfully!");
+        setMessage("🎉 Palette saved successfully!");
         setPaletteName("");
         setShowSaveModal(false);
         setTimeout(() => setMessage(""), 3000);
@@ -136,10 +136,10 @@ const PaletteGenerator = ({ onPaletteSaved }) => {
           className="generate-btn"
           onClick={() => handleGenerate(paletteType)}
         >
-          Generate
+          Generate New
         </button>
         <button className="save-btn" onClick={() => setShowSaveModal(true)}>
-          Save
+          Save Palette
         </button>
       </div>
 

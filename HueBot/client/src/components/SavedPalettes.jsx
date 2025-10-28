@@ -12,7 +12,6 @@ const SavedPalettes = ({ refreshTrigger, userName }) => {
     palette: null,
   });
 
-  // Get first name only
   const firstName = userName ? userName.split(" ")[0] : null;
 
   useEffect(() => {
@@ -138,11 +137,8 @@ const SavedPalettes = ({ refreshTrigger, userName }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <h3>Delete Palette</h3>
-            <p>
-              Are you sure you want to delete{" "}
-              <strong>{deleteModal.palette?.name}</strong>?
-            </p>
-            <p className="delete-warning">This action cannot be undone.</p>
+            <p>Are you sure you want to delete</p>
+            <p className="delete-warning">{deleteModal.palette?.name}?</p>
             <div className="delete-modal-actions">
               <button onClick={closeDeleteModal} className="cancel-btn">
                 Cancel

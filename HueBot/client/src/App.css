@@ -11,22 +11,15 @@
   margin: 0 auto 4rem;
   padding: 1.5rem 2rem;
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.06);
 }
 
 .header h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  background: linear-gradient(
-    135deg,
-    var(--purple),
-    var(--pink),
-    var(--orange)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--orange);
 }
 
 .user-info {
@@ -37,28 +30,29 @@
 
 .user-info span {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .logout-btn {
-  padding: 0.75rem 1.75rem;
+  padding: 0.7rem 1.5rem;
   border: 2px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  background: white;
   color: var(--text-primary);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .logout-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--purple);
-  transform: translateY(-2px);
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+  transform: translateY(-1px);
 }
 
 .app p {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
 }

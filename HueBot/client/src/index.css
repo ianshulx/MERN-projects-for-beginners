@@ -9,18 +9,19 @@
   line-height: 1.6;
   font-weight: 400;
 
-  /* Color palette */
-  --bg-dark: #0a0a0f;
-  --bg-card: #1a1a2e;
-  --purple: #a855f7;
-  --pink: #ec4899;
+  /* Light theme color palette */
+  --bg-primary: #fffaf5;
+  --bg-card: #ffffff;
   --orange: #f97316;
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --border: rgba(255, 255, 255, 0.1);
+  --orange-dark: #ea580c;
+  --pink: #ec4899;
+  --purple: #a855f7;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border: #fff0e6;
 
   color: var(--text-primary);
-  background: var(--bg-dark);
+  background: var(--bg-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,7 +32,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1e 50%, #0f0a1a 100%);
+  background: var(--bg-primary);
 }
 
 #root {

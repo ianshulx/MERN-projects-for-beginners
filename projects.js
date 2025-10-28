@@ -38,6 +38,34 @@ const projects = [
     imgSrc: "assets/imgtxt.png",
   },
 
+    {
+    title: "b2b-project-management",
+    url: "https://github.com/nagmanijha/b2b-workspace-management-backend",
+    description:
+      "A comprehensive B2B project management system built with the MERN stack, designed to streamline collaboration, task tracking, and communication for businesses.",
+    imgSrc: "assets/b2b.png",
+    },
+    {
+    title: "Finance-MERN",
+    url: "https://github.com/nagmanijha/finora",
+    description: "A personal finance management application built with the MERN stack, enabling users to track expenses, manage budgets, and visualize financial data through interactive charts and reports.",
+    imgSrc: "assets/finance.png",
+    },
+    {
+    title: "blog",
+    url: "https://github.com/nagmanijha/blog-app",
+    description:
+      "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
+    imgSrc: "assets/blog.png",
+    },
+    {
+    title: "E-commerce MERN",
+    url: "https://github.com/nagmanijha/e-commerce",
+    description:
+      "A full-featured e-commerce application built with the MERN stack, providing users with a seamless shopping experience, including product browsing, cart management, and secure checkout.",
+    imgSrc: "assets/e-comm.png",
+    }
+
 
   
   

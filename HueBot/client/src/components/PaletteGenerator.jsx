@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./PaletteGenerator.css";
 import {
   generateRandomPalette,
@@ -17,6 +17,19 @@ const PaletteGenerator = ({ onPaletteSaved }) => {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
   const [copiedIndex, setCopiedIndex] = useState(null);
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      // Only trigger if spacebar is pressed and not in an input field
+      if (e.code === "Space" && !showSaveModal) {
+        e.preventDefault();
+        handleGenerate(paletteType);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [paletteType, showSaveModal]);
 
   const handleGenerate = (type) => {
     setPaletteType(type);

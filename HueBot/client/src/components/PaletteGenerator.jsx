@@ -16,9 +16,11 @@ const PaletteGenerator = () => {
   const [paletteName, setPaletteName] = useState("");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const [copiedIndex, setCopiedIndex] = useState(null);
 
   const handleGenerate = (type) => {
     setPaletteType(type);
+    setCopiedIndex(null);
     switch (type) {
       case "random":
         setPalette(generateRandomPalette());
@@ -40,10 +42,10 @@ const PaletteGenerator = () => {
     }
   };
 
-  const copyToClipboard = (colour) => {
+  const copyToClipboard = (colour, index) => {
     navigator.clipboard.writeText(colour);
-    setMessage(`Copied ${colour}!`);
-    setTimeout(() => setMessage(""), 2000);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 1500);
   };
 
   const handleSave = async () => {
@@ -60,7 +62,7 @@ const PaletteGenerator = () => {
       });
 
       if (response.palette) {
-        setMessage("Palette saved successfully! 🎉");
+        setMessage("Palette saved successfully!");
         setPaletteName("");
         setShowSaveModal(false);
         setTimeout(() => setMessage(""), 3000);
@@ -117,9 +119,11 @@ const PaletteGenerator = () => {
             key={index}
             className="colour-box"
             style={{ backgroundColor: colour }}
-            onClick={() => copyToClipboard(colour)}
+            onClick={() => copyToClipboard(colour, index)}
           >
-            <span className="colour-code">{colour}</span>
+            <span className="colour-code">
+              {copiedIndex === index ? "Copied!" : colour}
+            </span>
           </div>
         ))}
       </div>

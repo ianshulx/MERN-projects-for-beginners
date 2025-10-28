@@ -9,21 +9,21 @@ const projects = [
   },
   {
     title: "UrlShortner",
-    url: "https://github.com/YashSavalkar321/UrlShortner",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/UrlShortner",
     description:
       "A URL shortening service that allows users to create shortened links for long URLs, track click statistics, and manage their links through a user-friendly interface.",
     imgSrc: "assets/urlcut.png",
   },
   {
     title: "Ai Code Review",
-    url: "https://github.com/YashSavalkar321/Ai-Code-Review",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/AI_Code_Review",
     description:
       "An AI-powered code review tool that analyzes code for potential issues, suggests improvements, and ensures adherence to coding standards, enhancing code quality and developer productivity.",
     imgSrc: "assets/aicode.png",
   },
   {
     title: "Ochi Web-Clone",
-    url: "https://github.com/YashSavalkar321/Ochi-Web-Clone---React",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/Ochi",
     description:
       "A React-based clone of the Ochi website, replicating its design and functionality to provide users with a similar browsing experience while showcasing React development skills.",
     imgSrc: "assets/ochi.png",
@@ -32,39 +32,26 @@ const projects = [
 
     {
     title: "Imagify",
-    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagifyr",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagify",
     description:
       "**Imagify** – A MERN-based AI web app that converts text prompts into stunning, high-quality images using advanced text-to-image generation models.",
     imgSrc: "assets/imgtxt.png",
   },
 
     {
-    title: "b2b-project-management",
-    url: "https://github.com/nagmanijha/b2b-workspace-management-backend",
-    description:
-      "A comprehensive B2B project management system built with the MERN stack, designed to streamline collaboration, task tracking, and communication for businesses.",
+    title: "b2b workspace",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/b2b-workspace-management/backend",
+    description: "B2B Workspace – A MERN-based collaborative platform for businesses to manage projects, clients, and communications seamlessly in one unified dashboard.",
     imgSrc: "assets/b2b.png",
     },
     {
-    title: "Finance-MERN",
-    url: "https://github.com/nagmanijha/finora",
-    description: "A personal finance management application built with the MERN stack, enabling users to track expenses, manage budgets, and visualize financial data through interactive charts and reports.",
-    imgSrc: "assets/finance.png",
-    },
-    {
     title: "blog",
-    url: "https://github.com/nagmanijha/blog-app",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/blog",
     description:
       "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
     imgSrc: "assets/blog.png",
     },
-    {
-    title: "E-commerce MERN",
-    url: "https://github.com/nagmanijha/e-commerce",
-    description:
-      "A full-featured e-commerce application built with the MERN stack, providing users with a seamless shopping experience, including product browsing, cart management, and secure checkout.",
-    imgSrc: "assets/e-comm.png",
-    }
+
 
 
   

@@ -15,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/palettes", require("./routes/palette"));
 
 // Status check endpoint
 app.get("/", (req, res) => {

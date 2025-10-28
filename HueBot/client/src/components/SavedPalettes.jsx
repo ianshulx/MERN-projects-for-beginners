@@ -2,11 +2,18 @@ import { useState, useEffect } from "react";
 import { paletteAPI } from "../services/api";
 import "./SavedPalettes.css";
 
-const SavedPalettes = ({ refreshTrigger }) => {
+const SavedPalettes = ({ refreshTrigger, userName }) => {
   const [palettes, setPalettes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [copiedColor, setCopiedColor] = useState(null);
+  const [deleteModal, setDeleteModal] = useState({
+    show: false,
+    palette: null,
+  });
+
+  // Get first name only
+  const firstName = userName ? userName.split(" ")[0] : null;
 
   useEffect(() => {
     fetchPalettes();
@@ -29,20 +36,25 @@ const SavedPalettes = ({ refreshTrigger }) => {
   };
 
   const handleDelete = async (paletteId) => {
-    if (!window.confirm("Are you sure you want to delete this palette?")) {
-      return;
-    }
-
     try {
       const data = await paletteAPI.delete(paletteId);
       if (data.success) {
         setPalettes(palettes.filter((p) => p._id !== paletteId));
+        setDeleteModal({ show: false, palette: null });
       } else {
         setError(data.message);
       }
     } catch {
       setError("Failed to delete palette");
     }
+  };
+
+  const openDeleteModal = (palette) => {
+    setDeleteModal({ show: true, palette });
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModal({ show: false, palette: null });
   };
 
   const copyToClipboard = (color, paletteId) => {
@@ -64,22 +76,32 @@ const SavedPalettes = ({ refreshTrigger }) => {
   if (palettes.length === 0) {
     return (
       <div className="saved-palettes-empty">
-        <p>No saved palettes yet!</p>
-        <p>Generate and save some beautiful colour combinations above.</p>
+        <p>
+          Oops! You haven't saved any hues {firstName ? ` ${firstName}` : ""}!
+        </p>
+        <p>Generate and save beautiful combinations.</p>
       </div>
     );
   }
 
   return (
     <div className="saved-palettes">
-      <h2>Your Saved Palettes</h2>
+      <div className="saved-palettes-header">
+        <h2>
+          {firstName ? `${firstName}'s Hue Collection` : "Your Saved Palettes"}
+        </h2>
+        <p className="palette-count">
+          {palettes.length} {palettes.length === 1 ? "palette" : "palettes"}{" "}
+          saved
+        </p>
+      </div>
       <div className="palettes-grid">
         {palettes.map((palette) => (
           <div key={palette._id} className="palette-card">
             <div className="palette-card-header">
               <h3>{palette.name}</h3>
               <button
-                onClick={() => handleDelete(palette._id)}
+                onClick={() => openDeleteModal(palette)}
                 className="delete-btn"
                 title="Delete palette"
               >
@@ -108,6 +130,33 @@ const SavedPalettes = ({ refreshTrigger }) => {
           </div>
         ))}
       </div>
+
+      {deleteModal.show && (
+        <div className="delete-modal-overlay" onClick={closeDeleteModal}>
+          <div
+            className="delete-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3>Delete Palette</h3>
+            <p>
+              Are you sure you want to delete{" "}
+              <strong>{deleteModal.palette?.name}</strong>?
+            </p>
+            <p className="delete-warning">This action cannot be undone.</p>
+            <div className="delete-modal-actions">
+              <button onClick={closeDeleteModal} className="cancel-btn">
+                Cancel
+              </button>
+              <button
+                onClick={() => handleDelete(deleteModal.palette._id)}
+                className="confirm-delete-btn"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -136,10 +136,10 @@ const PaletteGenerator = ({ onPaletteSaved }) => {
           className="generate-btn"
           onClick={() => handleGenerate(paletteType)}
         >
-          Generate New Palette
+          Generate
         </button>
         <button className="save-btn" onClick={() => setShowSaveModal(true)}>
-          Save Palette
+          Save
         </button>
       </div>
 

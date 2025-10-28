@@ -8,6 +8,7 @@ import "./App.css";
 function App() {
   const { isAuthenticated, user, logout } = useContext(AuthContext);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [showMyHues, setShowMyHues] = useState(false);
 
   const triggerRefresh = () => {
     setRefreshTrigger((prev) => prev + 1);
@@ -22,14 +23,22 @@ function App() {
       <div className="header">
         <h1>HueBot</h1>
         <div className="user-info">
-          <span>Hello, {user?.name}!</span>
+          <button
+            onClick={() => setShowMyHues(!showMyHues)}
+            className="my-hues-btn"
+          >
+            {showMyHues ? "Generate" : "My Hues"}
+          </button>
           <button onClick={logout} className="logout-btn">
             Logout
           </button>
         </div>
       </div>
-      <PaletteGenerator onPaletteSaved={triggerRefresh} />
-      <SavedPalettes refreshTrigger={refreshTrigger} />
+      {showMyHues ? (
+        <SavedPalettes refreshTrigger={refreshTrigger} userName={user?.name} />
+      ) : (
+        <PaletteGenerator onPaletteSaved={triggerRefresh} />
+      )}
     </div>
   );
 }

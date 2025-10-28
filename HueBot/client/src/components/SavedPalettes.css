@@ -1,13 +1,26 @@
 .saved-palettes {
-  margin-top: 3rem;
+  margin-top: 0;
   padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.saved-palettes-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .saved-palettes h2 {
   color: var(--orange);
   font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.palette-count {
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 .saved-palettes-loading,
@@ -30,7 +43,7 @@
 
 .palettes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
@@ -90,12 +103,14 @@
 
 .palette-colours {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
 }
 
 .colour-box-small {
-  flex: 1;
+  flex: 1 1 calc(20% - 0.5rem);
+  min-width: 50px;
   height: 80px;
   border-radius: 8px;
   cursor: pointer;
@@ -106,6 +121,7 @@
   justify-content: center;
   transition: transform 0.2s, opacity 0.2s;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .colour-box-small:hover {
@@ -118,12 +134,16 @@
 
 .hex-code-small {
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   background: rgba(0, 0, 0, 0.2);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.4rem;
   border-radius: 4px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .copied-badge-small {
@@ -147,6 +167,129 @@
   color: #999;
   font-size: 0.85rem;
   margin-top: 0.5rem;
+}
+
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayFadeIn 0.2s ease-in;
+}
+
+.delete-modal-content {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--orange);
+  animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-align: center;
+}
+
+.delete-modal-content h3 {
+  color: var(--orange);
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.delete-modal-content p {
+  color: #333;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.delete-modal-content p strong {
+  color: var(--orange);
+}
+
+.delete-warning {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1rem !important;
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.cancel-btn,
+.confirm-delete-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.cancel-btn {
+  background: white;
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+.confirm-delete-btn {
+  background: #ef4444;
+  border: 2px solid #ef4444;
+  color: white;
+}
+
+.confirm-delete-btn:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {

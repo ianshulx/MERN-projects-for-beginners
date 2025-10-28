@@ -1,7 +1,7 @@
 .palette-generator {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   position: relative;
 }
 
@@ -35,7 +35,7 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .palette-controls button {
@@ -109,7 +109,7 @@
 }
 
 .generate-btn {
-  padding: 1rem 3rem;
+  padding: 1rem 2.5rem;
   border: none;
   border-radius: 12px;
   background: var(--orange);
@@ -133,7 +133,7 @@
 }
 
 .save-btn {
-  padding: 1rem 3rem;
+  padding: 1rem 2.5rem;
   border: 2px solid var(--orange);
   border-radius: 12px;
   background: white;

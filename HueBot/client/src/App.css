@@ -25,12 +25,24 @@
 .user-info {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.user-info span {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+.my-hues-btn {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  background: white;
+  color: var(--orange);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.my-hues-btn:hover {
+  background: var(--orange);
+  color: white;
+  transform: translateY(-1px);
 }
 
 .logout-btn {

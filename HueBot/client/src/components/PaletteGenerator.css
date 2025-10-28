@@ -9,12 +9,13 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--orange);
-  color: white;
+  background: white;
+  color: var(--orange);
   padding: 1rem 1.5rem;
   border-radius: 10px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 0.05px solid var(--orange);
   animation: slideInBottom 0.3s ease;
   z-index: 1000;
 }

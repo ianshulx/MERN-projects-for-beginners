@@ -51,6 +51,13 @@ const projects = [
       "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
     imgSrc: "assets/blog.png",
     },
+    {
+    title: "Food_Delivery_App",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/Food_Delivery_App ",
+    description:
+      "A MERN stack application for food delivery services, allowing users to browse restaurants, place orders, and track deliveries.",
+    imgSrc: "assets/Fast_Food.svg",
+  },
 
 
 

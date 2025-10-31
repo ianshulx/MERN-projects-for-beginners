@@ -75,10 +75,13 @@
           <li class="list-none"><a href="#contributors" class="text-[#AEEAFC] list-item-a font-bold">Contributors</a></li>
           <li class="list-none"><a href="https://github.com/ianshulx/MERN-projects-for-beginners" target="_blank" class="text-[#AEEAFC] list-item-a font-bold">GitHub</a></li>
         </ul>
+        
 
         </div>
+        
 
         <div class="button-container-below-navbar relative sm:left-0 left-12 lg:right-20 nav-item-fade">
+          
           <div id="menu-label" class="menu-label menu-button-enhanced" tabindex="0" role="button" aria-expanded="false"
             aria-controls="menu-buttons">Menu</div>
           <div id="menu-buttons" class="inner-buttons hidden">
@@ -114,14 +117,25 @@
               <i class="bi bi-person-badge-fill"></i> Maintainer
             </button>
           </div>
+          
         </div>
 
 
 
       </div>
+      
     </nav>
 
   </div>
+  <div class="theme-selector">
+  <label for="theme-toggle">Theme:</label>
+  <select id="theme-toggle">
+    <option value="mongo">MongoDB</option>
+    <option value="express">Express</option>
+    <option value="react">React</option>
+    <option value="node">Node.js</option>
+  </select>
+</div>
 
   <!-- New Intro Section -->
   <section id="hero" class="intro-section" data-aos="fade-up">
@@ -436,4 +450,5 @@ s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.
 </svg>
 
 <script src="./menu-toggle.js"></script>
+<script src="theme-toggle.js"></script>
 </div></body></html>

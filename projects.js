@@ -3,8 +3,7 @@ const projects = [
   {
     title: "Example",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/project-name ",
-    description:
-      "awesome project",
+    description: "awesome project",
     imgSrc: "assets/mern.jpeg",
   },
   {
@@ -29,8 +28,7 @@ const projects = [
     imgSrc: "assets/ochi.png",
   },
 
-
-    {
+  {
     title: "Imagify",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/imagify",
     description:
@@ -38,31 +36,35 @@ const projects = [
     imgSrc: "assets/imgtxt.png",
   },
 
-    {
+  {
     title: "b2b workspace",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/b2b-workspace-management/backend",
-    description: "B2B Workspace – A MERN-based collaborative platform for businesses to manage projects, clients, and communications seamlessly in one unified dashboard.",
+    description:
+      "B2B Workspace – A MERN-based collaborative platform for businesses to manage projects, clients, and communications seamlessly in one unified dashboard.",
     imgSrc: "assets/b2b.png",
-    },
-    {
+  },
+  {
     title: "blog",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/blog",
     description:
       "A full-stack blogging platform built with the MERN stack, allowing users to create, edit, and share blog posts, comment on articles, and manage their profiles.",
     imgSrc: "assets/blog.png",
-    },
-    {
+  },
+  {
     title: "Food_Delivery_App",
     url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/Food_Delivery_App ",
     description:
       "A MERN stack application for food delivery services, allowing users to browse restaurants, place orders, and track deliveries.",
     imgSrc: "assets/Fast_Food.svg",
   },
-
-
-
-  
-  
+  {
+    title: "chat-app",
+    folder: "chat-app",
+    url: "https://github.com/ianshulx/MERN-projects-for-beginners/tree/main-616/chat-app",
+    description:
+      "A real-time chat application built with the MERN stack, enabling users to send messages, and share media instantly.",
+    imgSrc: "assets/chatty.jpeg",
+  },
 ];
 
 // Render all projects inside the container

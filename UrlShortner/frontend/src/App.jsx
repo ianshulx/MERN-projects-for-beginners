@@ -35,7 +35,7 @@ function App() {
     // Full page gradient background
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       <div className="container mx-auto px-4 py-8">
-        
+
         {/* ---------- HEADER ---------- */}
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -49,15 +49,14 @@ function App() {
         {/* ---------- NAVIGATION TABS ---------- */}
         <nav className="flex justify-center mb-8">
           <div className="bg-white rounded-xl shadow-lg p-1 flex gap-1">
-            
+
             {/* URL Shortener Tab */}
             <button
               onClick={() => setCurrentView('shortener')}
-              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-                currentView === 'shortener'
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${currentView === 'shortener'
                   ? 'bg-blue-500 text-white shadow-md'
                   : 'text-gray-600 hover:text-blue-500'
-              }`}
+                }`}
             >
               URL Shortener
             </button>
@@ -65,26 +64,25 @@ function App() {
             {/* Admin Panel Tab */}
             <button
               onClick={() => setCurrentView('admin')}
-              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-                currentView === 'admin'
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${currentView === 'admin'
                   ? 'bg-blue-500 text-white shadow-md'
                   : 'text-gray-600 hover:text-blue-500'
-              }`}
+                }`}
             >
               Admin Panel
             </button>
           </div>
         </nav>
 
-        {/* ---------- MAIN CONTENT ---------- */}
-        {/* Conditionally render views based on selected tab */}
-        <main>
+        {/* Main content area with consistent width */}
+        <main className="max-w-5xl mx-auto">
           {currentView === 'shortener' ? (
             <UrlShortener onUrlAdded={addNewUrl} />
           ) : (
             <AdminPanel urls={urls} onRefresh={fetchUrls} />
           )}
         </main>
+
 
         {/* ---------- FOOTER ---------- */}
         <footer className="text-center mt-16 text-gray-500">

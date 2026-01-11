@@ -65,6 +65,14 @@ const projects = [
       "A real-time chat application built with the MERN stack, enabling users to send messages, and share media instantly.",
     imgSrc: "assets/chatty.jpeg",
   },
+  {
+  name: "AI Journal App",
+  description: "A MERN-based journaling app with AI-powered summarization and mood analysis.",
+  techStack: ["MongoDB", "Express", "React", "Node", "AI"],
+  github: "https://github.com/ManneUdayKiran/AI-Journal-App",
+  demo: "https://ai-journal-app-topaz.vercel.app/",
+},
+
 ];
 
 // Render all projects inside the container

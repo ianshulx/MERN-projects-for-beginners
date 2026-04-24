@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -11,6 +12,10 @@ const Register = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 
+
+  // console.log(name);
+  // console.log(email);
+  // console.log(password);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -20,11 +25,12 @@ const Register = () => {
     setLoading(true);
     try {
       await register(name, email, password);
+      toast.success("Registration successful!");
       navigate("/");
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Registration failed. Please try again.",
-      );
+      const msg = err.response?.data?.message || "Registration failed. Please try again.";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }

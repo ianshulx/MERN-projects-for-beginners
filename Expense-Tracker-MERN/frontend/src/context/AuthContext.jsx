@@ -7,6 +7,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  axios.defaults.withCredentials = true;
+
   useEffect(() => {
     const stored = localStorage.getItem("user");
     if (stored) {
@@ -41,7 +43,12 @@ export const AuthProvider = ({ children }) => {
     return res.data;
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await axios.post("http://localhost:5000/api/auth/logout");
+    } catch (err) {
+      console.error("Logout error", err);
+    }
     setUser(null);
     localStorage.removeItem("user");
     delete axios.defaults.headers.common["Authorization"];

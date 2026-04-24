@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const CATEGORIES = [
   "Food",
@@ -22,9 +23,14 @@ const AddExpense = ({ onAdd }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    if (!title || !amount) return setError("Title and amount are required");
-    if (isNaN(amount) || Number(amount) <= 0)
+    if (!title || !amount) {
+      toast.error("Title and amount are required");
+      return setError("Title and amount are required");
+    }
+    if (isNaN(amount) || Number(amount) <= 0) {
+      toast.error("Amount must be a positive number");
       return setError("Amount must be a positive number");
+    }
 
     setLoading(true);
     try {
@@ -35,12 +41,15 @@ const AddExpense = ({ onAdd }) => {
         description,
       });
       onAdd(res.data);
+      toast.success("Expense added successfully!");
       setTitle("");
       setAmount("");
       setCategory("Other");
       setDescription("");
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to add expense");
+      const msg = err.response?.data?.message || "Failed to add expense";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }

@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
+import toast, { Toaster } from 'react-hot-toast';
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -20,6 +21,9 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <Router>
+      <Toaster  
+      position="top-center"
+      reverseOrder={true}/>
       <Navbar />
       <div className="container">
         <Routes>
@@ -35,6 +39,7 @@ function App() {
           />
         </Routes>
       </div>
+
     </Router>
   );
 }

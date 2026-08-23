@@ -1,13 +1,16 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ExpenseList = ({ expenses, onDelete }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/expenses/${id}`);
       onDelete(id);
+      toast.success("Expense deleted");
     } catch (err) {
       console.error("Failed to delete expense:", err);
+      toast.error("Failed to delete expense");
     }
   };
 

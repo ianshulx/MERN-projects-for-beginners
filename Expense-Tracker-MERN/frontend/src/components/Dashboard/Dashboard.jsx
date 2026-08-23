@@ -3,6 +3,7 @@ import axios from "axios";
 import AddExpense from "../Expenses/AddExpense";
 import ExpenseList from "../Expenses/ExpenseList";
 import { useAuth } from "../../context/AuthContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
